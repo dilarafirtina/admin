@@ -251,25 +251,25 @@ void showToastMessage(String type, String title, String message) async {
   );
 }
 
-Widget gridHeader() {
+Widget gridHeader(String? title) {
+  TextStyle style = TextStyle(color: Colors.red.shade600, fontSize: 12);
   return Padding(
       padding: EdgeInsets.all(defaultPadding),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
-            children: [Obx(() => Text(headerTitle.value))],
+            children: [Text(title!)],
           ),
           Container(
               child: Row(
             children: [
               Container(
                 width: 150,
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: TextField(
                   onChanged: (value) {},
                   decoration: InputDecoration(
-                    labelStyle: TextStyle(color: Colors.red.shade600),
+                    labelStyle: style,
                     labelText: 'Search',
                     suffixIcon: Icon(Icons.search, color: Colors.red.shade600),
                   ),
@@ -279,8 +279,7 @@ Widget gridHeader() {
               Row(
                 children: [
                   TextButton(
-                    child: Text("Print",
-                        style: TextStyle(color: Colors.red.shade600)),
+                    child: Text("Print", style: style),
                     onPressed: () => {},
                   ),
                   Icon(Icons.print, color: Colors.red.shade600)
@@ -290,8 +289,7 @@ Widget gridHeader() {
               Row(
                 children: [
                   TextButton(
-                    child: Text("Export",
-                        style: TextStyle(color: Colors.red.shade600)),
+                    child: Text("Export", style: style),
                     onPressed: () => {},
                   ),
                   Icon(Icons.upload, color: Colors.red.shade600)

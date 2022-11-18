@@ -4,15 +4,15 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:admin/widgets/form_master_widget.dart';
 import 'package:admin/widgets/form_widgets.dart';
 
-class NewCampaign extends StatelessWidget {
-  NewCampaign({Key? key}) : super(key: key);
+class NewHotel extends StatelessWidget {
+  NewHotel({Key? key}) : super(key: key);
 
   final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
   @override
   Widget build(BuildContext context) {
     return formMaster(
         context: context,
-        title: "Yeni Kampanya Kayıt",
+        title: "Yeni Otel Kayıt",
         key: formKey,
         onTap: () => {},
         child: <Widget>[

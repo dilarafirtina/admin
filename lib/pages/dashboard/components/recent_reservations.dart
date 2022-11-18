@@ -1,5 +1,5 @@
 import 'package:admin/constants.dart';
-import 'package:admin/models/Reservation.dart';
+import 'package:admin/models/reservation_model.dart';
 import 'package:admin/pages/reservations/recent_reservations_grid.dart';
 import 'package:flutter/material.dart';
 

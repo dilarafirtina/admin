@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             PointerDeviceKind.unknown
           },
         ),
-        title: 'Adaptive Theme Demo',
+        title: 'Admin',
         theme: theme,
         darkTheme: darkTheme,
         debugShowCheckedModeBanner: false,

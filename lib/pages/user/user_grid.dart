@@ -1,10 +1,10 @@
-import 'package:admin/pages/bonus/bonus_controller.dart';
+import 'package:admin/pages/user/user_controller.dart';
 import 'package:admin/widgets/grid_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Widget bonusGrid(BuildContext context, List data, String? title) {
-  final BonusController _controller = Get.put(BonusController());
+Widget userGrid(BuildContext context, List data, String? title) {
+  final UserController _controller = Get.put(UserController());
 
   return gridContainer(context: context, title: title, child: [
     Obx(
@@ -70,123 +70,94 @@ Widget bonusGrid(BuildContext context, List data, String? title) {
               }),
           DataColumn(
               label: const Text(
-                'Otel',
+                'Email',
               ),
               onSort: (columnIndex, sortAscending) {
                 if (columnIndex == _controller.sortColumnIndex.value) {
                   _controller.sortAsc.value =
-                      _controller.sortHotelAsc.value = sortAscending;
+                      _controller.sortEmailAsc.value = sortAscending;
                 } else {
                   _controller.sortColumnIndex.value = columnIndex;
-                  _controller.sortAsc = _controller.sortHotelAsc;
+                  _controller.sortAsc = _controller.sortEmailAsc;
                 }
-                data.sort((a, b) => a.hotel.compareTo(b.hotel));
+                data.sort((a, b) => a.hotel.email(b.email));
                 if (!_controller.sortAsc.value) {
                   data = data.reversed.toList();
                 }
               }),
           DataColumn(
               label: const Text(
-                'Oda',
+                'Ülke',
               ),
               onSort: (columnIndex, sortAscending) {
                 if (columnIndex == _controller.sortColumnIndex.value) {
                   _controller.sortAsc.value =
-                      _controller.sortRoomAsc.value = sortAscending;
+                      _controller.sortCountryAsc.value = sortAscending;
                 } else {
                   _controller.sortColumnIndex.value = columnIndex;
-                  _controller.sortAsc = _controller.sortRoomAsc;
+                  _controller.sortAsc = _controller.sortCountryAsc;
                 }
-                data.sort((a, b) => a.room.compareTo(b.room));
+                data.sort((a, b) => a.country.compareTo(b.country));
                 if (!_controller.sortAsc.value) {
                   data = data.reversed.toList();
                 }
               }),
           DataColumn(
               label: const Text(
-                'Voucher Tarihi',
+                'Şehir',
               ),
               onSort: (columnIndex, sortAscending) {
                 if (columnIndex == _controller.sortColumnIndex.value) {
                   _controller.sortAsc.value =
-                      _controller.sortVoucherDateAsc.value = sortAscending;
+                      _controller.sortCityAsc.value = sortAscending;
                 } else {
                   _controller.sortColumnIndex.value = columnIndex;
-                  _controller.sortAsc = _controller.sortVoucherDateAsc;
+                  _controller.sortAsc = _controller.sortCityAsc;
                 }
-                data.sort((a, b) => a.voucherDate.compareTo(b.voucherDate));
+                data.sort((a, b) => a.city.compareTo(b.city));
                 if (!_controller.sortAsc.value) {
                   data = data.reversed.toList();
                 }
               }),
           DataColumn(
               label: const Text(
-                'Check In ',
+                'Kayıt Tarihi',
               ),
               onSort: (columnIndex, sortAscending) {
                 if (columnIndex == _controller.sortColumnIndex.value) {
                   _controller.sortAsc.value =
-                      _controller.sortCheckInDateAsc.value = sortAscending;
+                      _controller.sortRegisterDateAsc.value = sortAscending;
                 } else {
                   _controller.sortColumnIndex.value = columnIndex;
-                  _controller.sortAsc = _controller.sortCheckInDateAsc;
+                  _controller.sortAsc = _controller.sortRegisterDateAsc;
                 }
-                data.sort((a, b) => a.checkIn.compareTo(b.checkIn));
+                data.sort((a, b) => a.registerDate.compareTo(b.registerDate));
                 if (!_controller.sortAsc.value) {
                   data = data.reversed.toList();
                 }
               }),
           DataColumn(
               label: const Text(
-                'Check Out',
+                'KVKK',
               ),
               onSort: (columnIndex, sortAscending) {
                 if (columnIndex == _controller.sortColumnIndex.value) {
                   _controller.sortAsc.value =
-                      _controller.sortCheckoutDateAsc.value = sortAscending;
+                      _controller.sortKVKKAsc.value = sortAscending;
                 } else {
                   _controller.sortColumnIndex.value = columnIndex;
-                  _controller.sortAsc = _controller.sortCheckoutDateAsc;
+                  _controller.sortAsc = _controller.sortKVKKAsc;
                 }
-                data.sort((a, b) => a.checkOut.compareTo(b.checkOut));
+                data.sort((a, b) => a.kvkk.compareTo(b.kvkk));
                 if (!_controller.sortAsc.value) {
                   data = data.reversed.toList();
                 }
               }),
           DataColumn(
-              label: Text(
-                'Har. Bonus',
-              ),
-              onSort: (columnIndex, sortAscending) {
-                if (columnIndex == _controller.sortColumnIndex.value) {
-                  _controller.sortAsc.value =
-                      _controller.sortBonusAsc.value = sortAscending;
-                } else {
-                  _controller.sortColumnIndex.value = columnIndex;
-                  _controller.sortAsc = _controller.sortBonusAsc;
-                }
-                data.sort((a, b) => a.totalBonus.compareTo(b.totalBonus));
-                if (!_controller.sortAsc.value) {
-                  data = data.reversed.toList();
-                }
-              }),
-          DataColumn(
-              label: Text(
-                'Onay',
-              ),
-              onSort: (columnIndex, sortAscending) {
-                if (columnIndex == _controller.sortColumnIndex.value) {
-                  _controller.sortAsc.value =
-                      _controller.sortStatusAsc.value = sortAscending;
-                } else {
-                  _controller.sortColumnIndex.value = columnIndex;
-                  _controller.sortAsc = _controller.sortStatusAsc;
-                }
-                data.sort((a, b) => a.status.compareTo(b.status));
-                if (!_controller.sortAsc.value) {
-                  data = data.reversed.toList();
-                }
-              }),
+            label: Text(
+              'Onay',
+            ),
+          ),
         ],
         rows: List<DataRow>.generate(
           data.length,
@@ -205,37 +176,38 @@ Widget bonusGrid(BuildContext context, List data, String? title) {
               DataCell(Text(data[index].name + " " + data[index].surname)),
               DataCell(Text(data[index].agency)),
               DataCell(Text(data[index].operator)),
-              DataCell(Text(data[index].hotel)),
-              DataCell(Text(data[index].room)),
-              DataCell(Text(data[index].voucherDate)),
-              DataCell(Text(data[index].checkIn)),
-              DataCell(Text(data[index].checkOut)),
-              DataCell(Text(data[index].usedBonus.toString())),
+              DataCell(Text(data[index].email)),
+              DataCell(Text(data[index].country)),
+              DataCell(Text(data[index].city)),
+              DataCell(Text(data[index].registerDate)),
+              DataCell(Text(data[index].kvkk)),
               DataCell(
                 Row(
                   children: [
-                    if (data[index].status == "Cancelled")
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Icon(Icons.edit, color: Colors.white),
+                    Padding(
+                      padding: EdgeInsets.all(5),
+                      child: IconButton(
+                        icon: Icon(Icons.details, color: Colors.cyan),
+                        onPressed: () => {},
                       ),
-                    if (data[index].status != "Completed" &&
-                        data[index].status != "Cancelled")
+                    ),
+                    if (data[index].status != "Confirmed")
                       Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Icon(Icons.check_circle,
-                            color: Colors.green.shade600),
-                      ),
-                    if (data[index].status != "Cancelled")
+                          padding: EdgeInsets.all(5),
+                          child: IconButton(
+                            icon: Icon(Icons.check_circle,
+                                color: Colors.green.shade600),
+                            onPressed: () => {},
+                          )),
+                    if (data[index].status != "Denied" &&
+                        data[index].status != "BlackList")
                       Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Icon(Icons.cancel, color: Colors.red.shade600),
-                      ),
-                    if (data[index].status == "Cancelled")
-                      Padding(
-                        padding: EdgeInsets.all(5),
-                        child: Icon(Icons.arrow_circle_up, color: Colors.cyan),
-                      ),
+                          padding: EdgeInsets.all(5),
+                          child: IconButton(
+                            icon:
+                                Icon(Icons.cancel, color: Colors.red.shade600),
+                            onPressed: () => {},
+                          )),
                   ],
                 ),
               ),

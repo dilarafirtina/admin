@@ -1,5 +1,5 @@
 import 'package:admin/constants.dart';
-import 'package:admin/models/Campaigns.dart';
+import 'package:admin/models/campaign_model.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';

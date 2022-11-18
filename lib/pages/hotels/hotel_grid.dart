@@ -6,7 +6,7 @@ import 'package:admin/widgets/networkimage_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Widget campaignGrid(BuildContext context) {
+Widget hotelGrid(BuildContext context) {
   final CampaignController _controller = Get.put(CampaignController());
 
   return gridContainer(context: context, title: "Kampanya Listesi", child: [

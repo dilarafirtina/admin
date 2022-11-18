@@ -4,8 +4,8 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:admin/widgets/form_master_widget.dart';
 import 'package:admin/widgets/form_widgets.dart';
 
-class NewCampaign extends StatelessWidget {
-  NewCampaign({Key? key}) : super(key: key);
+class NewOperator extends StatelessWidget {
+  NewOperator({Key? key}) : super(key: key);
 
   final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
   @override
@@ -16,21 +16,17 @@ class NewCampaign extends StatelessWidget {
         key: formKey,
         onTap: () => {},
         child: <Widget>[
-          formLabel('Kampanya İsmi'),
+          formLabel('İsim'),
           SizedBox(width: 300, child: formInput("EMAIL")),
-          formLabel('Başlama Tarihi'),
+          formLabel('Milliyeti'),
           SizedBox(
-              width: 150,
-              child: formDatePicker("TDATE", InputType.date, formKey)),
-          formLabel('Bitiş Tarihi'),
+            width: 300,
+            child: formDropdown("Nationality", []),
+          ),
+          formLabel('Geçerli Olduğu Pazar'),
           SizedBox(
-              width: 150,
-              child: formDatePicker("TDATE", InputType.date, formKey)),
-          formLabel('Dosya Yükle'),
-          SizedBox(
-            width: 150,
-            height: 50,
-            child: fileUploadButton("Fatura Yükle"),
+            width: 300,
+            child: formDropdown("market", []),
           ),
         ]);
   }

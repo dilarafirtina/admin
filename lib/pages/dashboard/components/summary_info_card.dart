@@ -1,4 +1,4 @@
-import 'package:admin/models/Summary.dart';
+import 'package:admin/models/summary_model.dart';
 import 'package:admin/responsive.dart';
 import 'package:flutter/material.dart';
 

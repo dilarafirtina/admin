@@ -1,4 +1,4 @@
-import 'package:admin/models/Reservation.dart';
+import 'package:admin/models/reservation_model.dart';
 import 'package:admin/pages/dashboard/components/campaigns.dart';
 import 'package:admin/pages/dashboard/components/line_chart_widget.dart';
 import 'package:admin/pages/dashboard/components/recent_reservations.dart';

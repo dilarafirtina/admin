@@ -13,6 +13,7 @@ Widget formMaster(
     required List<Widget> child}) {
   return Scaffold(
     body: Container(
+      padding: EdgeInsets.symmetric(horizontal: defaultPadding),
       width: double.infinity,
       decoration: BoxDecoration(
         color: Theme.of(context!).canvasColor,
@@ -21,48 +22,45 @@ Widget formMaster(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          SizedBox(
+            height: 30,
+          ),
           Text(
             title,
             style: TextStyle(
               fontWeight: FontWeight.w600,
             ),
           ),
+          SizedBox(
+            height: defaultPadding,
+          ),
           Divider(
             thickness: 1,
           ),
           Expanded(
-            child: Container(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Expanded(
-                        child: SingleChildScrollView(
-                      child: Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            FormBuilder(
-                              key: key,
-                              child: Column(children: child),
-                            ),
-                            formSaveButton(onTap)
-                          ],
-                        ),
-                      ),
-                    )),
-                    SizedBox(
-                      height: 50,
-                    ),
-                  ],
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 16,
                 ),
-              ),
+                Expanded(
+                    child: SingleChildScrollView(
+                  child: Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        FormBuilder(
+                          key: key,
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: child),
+                        ),
+                        formSaveButton(onTap)
+                      ],
+                    ),
+                  ),
+                )),
+              ],
             ),
           )
         ],

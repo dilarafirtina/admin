@@ -13,12 +13,14 @@ class SideMenu extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Image.asset("assets/images/logo.png"),
-                  Text("Kemer | Antalya | Türkiye")
-                ]),
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Image.asset("assets/images/logo.png"),
+              Text(
+                "Kemer | Antalya | Türkiye",
+                style: TextStyle(fontSize: 10),
+              )
+            ]),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,

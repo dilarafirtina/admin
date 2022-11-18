@@ -8,20 +8,21 @@ Widget defaultButton({
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
     child: SizedBox(
-      width: double.infinity,
-      height: 56,
+      height: 50,
       child: TextButton(
         style: TextButton.styleFrom(
+          padding: EdgeInsets.symmetric(horizontal: defaultPadding),
           foregroundColor: Colors.white,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          backgroundColor: primaryColor,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              side: BorderSide(color: Color.fromARGB(255, 186, 185, 185))),
+          backgroundColor: Colors.transparent,
         ),
         onPressed: press as void Function()?,
         child: Text(
           text!,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 14,
             color: Colors.white,
           ),
         ),
