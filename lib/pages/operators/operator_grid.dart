@@ -1,11 +1,9 @@
-import 'package:admin/constants.dart';
-import 'package:admin/models/campaign_model.dart';
-import 'package:admin/models/operator_model.dart';
-import 'package:admin/pages/operators/operator_controller.dart';
-import 'package:admin/widgets/grid_container.dart';
-import 'package:admin/widgets/networkimage_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../models/operator_model.dart';
+import '../../widgets/grid_container.dart';
+import 'operator_controller.dart';
 
 Widget operatorGrid(BuildContext context) {
   final OperatorController _controller = Get.put(OperatorController());
@@ -14,7 +12,6 @@ Widget operatorGrid(BuildContext context) {
     Container(
       child: Obx(
         () => DataTable(
-          dataRowHeight: 150,
           border: TableBorder.all(
               color: Colors.grey.withOpacity(0.3),
               width: 1,

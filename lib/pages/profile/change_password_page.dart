@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:admin/constants.dart';
-import 'package:admin/widgets/form_master_widget.dart';
-import 'package:admin/widgets/form_widgets.dart';
-import 'package:admin/widgets/widgets.dart';
+
+import '../../widgets/form_master_widget.dart';
+import '../../widgets/form_widgets.dart';
 
 class ChangePasswordPage extends StatelessWidget {
   ChangePasswordPage({Key? key}) : super(key: key);

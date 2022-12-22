@@ -1,7 +1,8 @@
-import 'package:admin/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
+
+import '../../utils/utils.dart';
 
 class LoginController extends GetxController {
   //var activeMenuItem = Menu(id: 0, name: "").obs;

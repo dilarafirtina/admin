@@ -1,6 +1,6 @@
 import 'dart:html';
 
-import 'package:admin/constants.dart';
+import '../utils/configuration.dart';
 import 'package:mime_type/mime_type.dart';
 import 'package:path/path.dart' as Path;
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ Widget fileUploadButton(String text) {
           ),
         ),
         foregroundColor: MaterialStateProperty.all(snowColor),
-        backgroundColor: MaterialStateProperty.all(secondaryColor)),
+        backgroundColor: MaterialStateProperty.all(kSecondaryColor)),
     onPressed: () => getMultipleImageInfos,
     child: Row(
       children: <Widget>[

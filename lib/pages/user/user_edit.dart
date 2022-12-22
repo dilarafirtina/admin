@@ -1,8 +1,9 @@
-import 'package:admin/constants.dart';
-import 'package:admin/widgets/form_master_widget.dart';
-import 'package:admin/widgets/form_widgets.dart';
+import '../../utils/configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+
+import '../../widgets/form_master_widget.dart';
+import '../../widgets/form_widgets.dart';
 
 class UserEdit extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
@@ -141,7 +142,7 @@ class UserEdit extends StatelessWidget {
                           children: [
                             Checkbox(
                                 autofocus: false,
-                                activeColor: secondaryColor,
+                                activeColor: kSecondaryColor,
                                 checkColor: Colors.white,
                                 value: true,
                                 onChanged: (value) => {false}),
@@ -165,7 +166,7 @@ class UserEdit extends StatelessWidget {
                           children: [
                             Checkbox(
                                 autofocus: false,
-                                activeColor: secondaryColor,
+                                activeColor: kSecondaryColor,
                                 checkColor: Colors.white,
                                 value: true,
                                 onChanged: (value) => {false}),

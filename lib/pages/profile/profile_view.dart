@@ -1,15 +1,13 @@
 import 'dart:html';
-
-import 'package:admin/constants.dart';
-import 'package:admin/widgets/photo_upload.dart';
-import 'package:admin/pages/profile/widgets/radio_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import 'package:admin/widgets/form_master_widget.dart';
-import 'package:admin/widgets/form_widgets.dart';
+import '../../widgets/form_master_widget.dart';
+import '../../widgets/form_widgets.dart';
+import '../../widgets/photo_upload.dart';
 import 'profile_controller.dart';
+import 'widgets/radio_list.dart';
 
 class ProfileView extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();

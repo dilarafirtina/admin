@@ -1,8 +1,6 @@
 import 'dart:io';
-import 'package:admin/constants.dart';
-import 'package:admin/models/lookup_item_model.dart';
-import 'package:admin/widgets/default_button.dart';
-import 'package:admin/widgets/widgets.dart';
+import '../models/lookup_item_model.dart';
+import '../utils/configuration.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -10,6 +8,9 @@ import 'package:form_builder_extra_fields/form_builder_extra_fields.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
+
+import 'default_button.dart';
+import 'widgets.dart';
 
 Widget formLabel(String label) {
   return Container(
@@ -86,7 +87,7 @@ Widget formInputDouble(String field, {IconData? suffixIcon, bool? isRequired}) {
 
 Widget formSwitch(String label, String fieldName, {bool? enabled}) {
   return FormBuilderSwitch(
-    activeColor: primaryColor,
+    activeColor: kPrimaryColor,
     activeTrackColor: Colors.grey.shade100,
     inactiveThumbColor: Colors.grey.shade300,
     inactiveTrackColor: Colors.grey.shade100,

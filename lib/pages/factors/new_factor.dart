@@ -1,10 +1,10 @@
-import 'package:admin/constants.dart';
-import 'package:admin/responsive.dart';
-import 'package:admin/widgets/photo_upload.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:admin/widgets/form_master_widget.dart';
-import 'package:admin/widgets/form_widgets.dart';
+
+import '../../responsive.dart';
+import '../../utils/configuration.dart';
+import '../../widgets/form_master_widget.dart';
+import '../../widgets/form_widgets.dart';
 
 class NewFactor extends StatelessWidget {
   NewFactor({Key? key}) : super(key: key);

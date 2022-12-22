@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
-import 'package:admin/utils/utils.dart';
 import 'dart:core';
+
+import '../../utils/utils.dart';
 
 class ProfileController extends GetxController {
   // var item = Menu(id: 0, name: "");

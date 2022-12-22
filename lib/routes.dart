@@ -9,12 +9,18 @@ import 'package:admin/pages/profile/change_password_page.dart';
 import 'package:admin/pages/profile/profile_controller.dart';
 import 'package:admin/pages/profile/profile_view.dart';
 import 'package:get/get.dart';
+import 'pages/graphs/graphs_view.dart';
+import 'pages/splash/splash_view.dart';
 import 'utils/app_routes.dart';
 
 class Routes {
-  static const INITIAL = AppRoutes.login;
+  static const INITIAL = AppRoutes.splash;
   static const ERROR = AppRoutes.notFoundPage;
   static final routes = [
+    GetPage(
+      name: AppRoutes.splash,
+      page: () => SplashView(),
+    ),
     GetPage(
       name: AppRoutes.notFoundPage,
       page: () => const UnknownView(),
@@ -34,6 +40,7 @@ class Routes {
             () => {Get.lazyPut<LoginController>(() => LoginController())})),
     GetPage(name: AppRoutes.forgotPassword, page: () => ForgetPasswordPage()),
     GetPage(name: AppRoutes.passwordReset, page: () => PasswordResetPage()),
+    GetPage(name: AppRoutes.graphs, page: () => GraphsView()),
   ];
 }
 

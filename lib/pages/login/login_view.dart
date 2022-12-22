@@ -1,14 +1,15 @@
-import 'package:admin/pages/login/login_controller.dart';
-import 'package:admin/pages/login/widgets/dont_have_account_row.dart';
-import 'package:admin/utils/app_routes.dart';
-import 'package:admin/widgets/background_wrapper.dart';
-import 'package:admin/widgets/default_button.dart';
-import 'package:admin/widgets/form_widgets.dart';
-import 'package:admin/widgets/networkimage_widget.dart';
-import 'package:admin/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get/get.dart';
+
+import '../../controllers/login_controller.dart';
+import '../../utils/app_routes.dart';
+import '../../utils/configuration.dart';
+import '../../widgets/background_wrapper.dart';
+import '../../widgets/default_button.dart';
+import '../../widgets/form_widgets.dart';
+import '../../widgets/networkimage_widget.dart';
+import 'widgets/dont_have_account_row.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);

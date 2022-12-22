@@ -1,10 +1,8 @@
-import 'package:admin/constants.dart';
-import 'package:admin/constants.dart';
 import 'package:admin/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-const double defaultPadding = 0;
+import 'utils/configuration.dart';
 
 class UnknownView extends StatelessWidget {
   const UnknownView({Key? key}) : super(key: key);
@@ -19,7 +17,7 @@ class UnknownView extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () => Get.toNamed(AppRoutes.home),
           style: ElevatedButton.styleFrom(
-              shape: const CircleBorder(), backgroundColor: primaryColor),
+              shape: const CircleBorder(), backgroundColor: kPrimaryColor),
           child: Icon(Icons.arrow_back, color: Colors.grey.shade50),
         ),
       ),

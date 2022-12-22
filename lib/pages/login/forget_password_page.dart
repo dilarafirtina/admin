@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:admin/constants.dart';
-import 'package:admin/widgets/form_master_widget.dart';
-import 'package:admin/widgets/form_widgets.dart';
+
+import '../../utils/configuration.dart';
+import '../../widgets/form_master_widget.dart';
+import '../../widgets/form_widgets.dart';
 
 class ForgetPasswordPage extends StatelessWidget {
   ForgetPasswordPage({Key? key}) : super(key: key);

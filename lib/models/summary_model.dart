@@ -1,6 +1,3 @@
-import 'package:admin/constants.dart';
-import 'package:flutter/material.dart';
-
 class Summary {
   final String? title;
   final int? amount;

@@ -1,10 +1,11 @@
-import 'package:admin/constants.dart';
-import 'package:admin/models/campaign_model.dart';
-import 'package:admin/pages/campaigns/campaign_controller.dart';
-import 'package:admin/widgets/grid_container.dart';
-import 'package:admin/widgets/networkimage_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../models/campaign_model.dart';
+import '../../utils/configuration.dart';
+import '../../widgets/grid_container.dart';
+import '../../widgets/networkimage_widget.dart';
+import '../campaigns/campaign_controller.dart';
 
 Widget hotelGrid(BuildContext context) {
   final CampaignController _controller = Get.put(CampaignController());
@@ -127,7 +128,7 @@ Widget hotelGrid(BuildContext context) {
                 DataCell(
                   Checkbox(
                       autofocus: false,
-                      activeColor: secondaryColor,
+                      activeColor: kSecondaryColor,
                       checkColor: Colors.white,
                       value: campaignList[index].status,
                       onChanged: (value) => {false}),

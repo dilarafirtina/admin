@@ -22,4 +22,7 @@ class AppRoutes {
   static const String detailPage = '/detail/:id';
   static const String new_reservation = "/new_reservation";
   static const String new_bonus = "/new_bonus";
+  static const String reservations = "/reservations";
+  static const String requests = "/requests";
+  static const String graphs = "/graphs";
 }

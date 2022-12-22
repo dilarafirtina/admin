@@ -1,8 +1,8 @@
-import 'package:admin/constants.dart';
-import 'package:admin/widgets/background_wrapper.dart';
+import '../utils/configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:admin/widgets/form_widgets.dart';
+
+import 'form_widgets.dart';
 
 Widget formMaster(
     {BuildContext? context,

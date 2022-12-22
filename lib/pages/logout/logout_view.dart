@@ -1,11 +1,12 @@
-import 'package:admin/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:admin/pages/logout/logout_controller.dart';
-import 'package:admin/utils/app_routes.dart';
-import 'package:admin/widgets/default_button.dart';
-import 'package:admin/widgets/networkimage_widget.dart';
-import 'package:admin/widgets/wave.dart';
+
+import '../../utils/app_routes.dart';
+import '../../utils/configuration.dart';
+import '../../widgets/default_button.dart';
+import '../../widgets/networkimage_widget.dart';
+import '../../widgets/wave.dart';
+import 'logout_controller.dart';
 
 class LogoutView extends StatelessWidget {
   LogoutView({Key? key}) : super(key: key);

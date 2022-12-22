@@ -1,5 +1,6 @@
-import 'package:admin/widgets/networkimage_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'networkimage_widget.dart';
 
 class IntroLoginBackgroundWrapper extends StatelessWidget {
   const IntroLoginBackgroundWrapper({

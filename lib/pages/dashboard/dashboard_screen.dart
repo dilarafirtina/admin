@@ -1,15 +1,14 @@
-import 'package:admin/models/reservation_model.dart';
-import 'package:admin/pages/dashboard/components/campaigns.dart';
-import 'package:admin/pages/dashboard/components/line_chart_widget.dart';
-import 'package:admin/pages/dashboard/components/recent_reservations.dart';
-import 'package:admin/pages/reservations/recent_reservations_grid.dart';
-import 'package:admin/responsive.dart';
-import 'package:admin/pages/dashboard/components/summary.dart';
-import 'package:admin/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
-import 'components/header.dart';
+import '../../responsive.dart';
+import '../../utils/configuration.dart';
+import 'widgets/campaigns.dart';
+import 'widgets/charts_widgets.dart';
+import 'widgets/line_chart_widget.dart';
+import 'widgets/progress_indicators.dart';
+import 'widgets/recent_reservations.dart';
+import 'widgets/summary.dart';
+import 'widgets/summary_widgets.dart';
 
 class DashboardScreen extends StatelessWidget {
   @override
@@ -26,7 +25,13 @@ class DashboardScreen extends StatelessWidget {
                   SizedBox(height: defaultPadding),
                   LineChartView(),
                   SizedBox(height: defaultPadding),
+                  ProgressIndicators(context),
+                  SizedBox(height: defaultPadding),
+                  SummaryWidgets(context),
+                  SizedBox(height: defaultPadding),
                   RecentReservations(context),
+                  SizedBox(height: defaultPadding),
+                  ChartsWidgets(context),
                   SizedBox(height: defaultPadding),
                   ImageSlider(),
                   SizedBox(height: defaultPadding),
@@ -46,10 +51,15 @@ class DashboardScreen extends StatelessWidget {
                         flex: 3,
                         child: LineChartView(),
                       ),
-                      SizedBox(width: defaultPadding),
                     ],
                   ),
-                  SizedBox(height: defaultPadding * 2),
+                  SizedBox(height: defaultPadding),
+                  ProgressIndicators(context),
+                  SizedBox(height: defaultPadding),
+                  SummaryWidgets(context),
+                  SizedBox(height: defaultPadding),
+                  ChartsWidgets(context),
+                  SizedBox(height: defaultPadding),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -62,7 +72,6 @@ class DashboardScreen extends StatelessWidget {
                         flex: 2,
                         child: ImageSlider(),
                       ),
-                      SizedBox(width: defaultPadding),
                     ],
                   ),
                 ],

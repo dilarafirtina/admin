@@ -1,9 +1,10 @@
-import 'package:admin/constants.dart';
-import 'package:admin/models/factor_model.dart';
-import 'package:admin/pages/factors/factor_controller.dart';
-import 'package:admin/widgets/grid_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../models/factor_model.dart';
+import '../../utils/configuration.dart';
+import '../../widgets/grid_container.dart';
+import 'factor_controller.dart';
 
 Widget factorGrid(BuildContext context) {
   final FactorController _controller = Get.put(FactorController());

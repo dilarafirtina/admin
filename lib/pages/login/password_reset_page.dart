@@ -1,10 +1,11 @@
-import 'package:admin/constants.dart';
-import 'package:admin/pages/login/widgets/login_header.dart';
-import 'package:admin/utils/app_routes.dart';
-import 'package:admin/widgets/default_button.dart';
-import 'package:admin/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../utils/app_routes.dart';
+import '../../utils/configuration.dart';
+import '../../widgets/default_button.dart';
+import '../../widgets/widgets.dart';
+import 'widgets/login_header.dart';
 
 class PasswordResetPage extends StatelessWidget {
   const PasswordResetPage({Key? key}) : super(key: key);

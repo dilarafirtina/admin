@@ -1,7 +1,8 @@
-import 'package:admin/utils/app_routes.dart';
-import 'package:admin/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../utils/app_routes.dart';
+import '../../../widgets/default_button.dart';
 
 class DontHaveAccountRow extends StatelessWidget {
   const DontHaveAccountRow({

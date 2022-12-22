@@ -1,6 +1,7 @@
-import 'package:admin/constants.dart';
-import 'package:admin/widgets/widgets.dart';
+import '../utils/configuration.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets.dart';
 
 Widget gridContainer({
   BuildContext? context,

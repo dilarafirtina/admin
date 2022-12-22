@@ -1,7 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:admin/constants.dart';
-import 'package:admin/widgets/networkimage_widget.dart';
+
+import '../../../utils/configuration.dart';
+import '../../../widgets/networkimage_widget.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({

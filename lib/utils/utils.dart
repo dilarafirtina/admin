@@ -1,11 +1,26 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:admin/constants.dart';
-import 'package:admin/widgets/widgets.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+
+import '../models/menuslider_model.dart';
+import '../widgets/widgets.dart';
+import 'configuration.dart';
+
+parseSliderImages(value) {
+  List<MenuSlider> newList = [];
+  if (value == null || value == "") return newList;
+  value = value.replaceAll("\'", "\"");
+  var list = json.decode(value);
+  for (var val in list) {
+    newList.add(MenuSlider(order: 1, imageUrl: val));
+  }
+  return newList;
+}
 
 parseArray(value) {
   List<int> newList = [];
@@ -181,7 +196,7 @@ showErrorDialog(String title, String message) {
         child: Icon(
           Icons.error_rounded,
           size: 70,
-          color: primaryColor,
+          color: kPrimaryColor,
         ),
       ),
       Text(message.tr, maxLines: 10),
@@ -209,9 +224,10 @@ showConfirmDialog(
       //onConfirm: onConfirm,
       //onCancel: () => Get.back(),
       confirm: GestureDetector(
-          onTap: onConfirm, child: smallColoredButton(Icons.thumb_up_sharp)),
+          onTap: onConfirm, child: smallColoredButton(Icons.thumb_up)),
       cancel: GestureDetector(
-          onTap: () => Get.back(), child: smallColoredButton(Icons.schedule)));
+          onTap: () => Get.back(),
+          child: smallColoredButton(Icons.multiple_stop)));
 }
 
 // showBusyIndicator() {
@@ -251,7 +267,7 @@ showNetworkImage(String imageLink) {
         SizedBox(height: 500, width: 500, child: Image.network(imageLink)),
       ]),
       cancel: GestureDetector(
-          onTap: () => Get.back(), child: smallColoredButton(Icons.schedule)));
+          onTap: () => Get.back(), child: smallColoredButton(Icons.cancel)));
 }
 
 //Get.find<AuthController>().user.uid;
@@ -291,7 +307,7 @@ Future<void> launchEmail(String url) async {
 
 Future<void> launchMap(String lat, String long) async {
   var mapSchema = '$lat,$long';
-  if (Platform.isIOS) {
+  if (GetPlatform.isIOS) {
     mapSchema = 'http://maps.apple.com/?ll=$lat,$long'; //?q=${lat},${long}';
   } else {
     mapSchema =
@@ -317,7 +333,7 @@ Future<void> launchWhatsApp(String phone) async {
   String phoneNumber = phone.replaceAll(' ', '');
   String description = "Hi,";
 
-  if (Platform.isIOS) {
+  if (GetPlatform.isIOS) {
     whatsAppUrl =
         'whatsapp://wa.me/$phoneNumber/?text=${Uri.parse(description)}';
   } else {
@@ -341,97 +357,6 @@ Future<void> launchInWebViewWithJavaScript(String? url) async {
   )) {
     showAlert('Could not launch $url');
   }
-}
-
-bool menuRoute(String route) {
-  if (route.startsWith("/home") ||
-      route.startsWith("/list") ||
-      route.startsWith("/detail") ||
-      route.startsWith("/contact") ||
-      route.startsWith("/account") ||
-      route.startsWith("/social")) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-// goTo(Menu item) {
-//   MenuController controller = Get.find();
-
-//   if (item.route == null || item.route == "") return;
-//   if (item.route == "/email") {
-//     if (item.url != null) {
-//       launchEmail(item.url!);
-//     }
-//     return;
-//   }
-//   if (item.route == "/login") {
-//     showLoginDialog();
-//     return;
-//   } else if (item.route == "/launchInWebview") {
-//     launchInWebViewWithJavaScript(item.url);
-//   } else if (item.route == "/launchInBrowser") {
-//     launchInBrowser(item.url);
-//   } else if (item.route == "/whatsApp") {
-//     launchWhatsApp(item.route!);
-//   } else if (item.route == "/tel") {
-//     launchPhone(item.route!);
-//   } //co//company.whatsAppPhone
-//   else if (item.route == "/webview") {
-//     Get.toNamed(item.route!, arguments: item.url);
-//     return;
-//   } else if (menuRoute(item.route!)) {
-//     Get.toNamed(item.route! + '/' + item.id.toString());
-//   } else {
-//     Get.toNamed(item.route!);
-//     return;
-//   }
-//   controller.item.value = item;
-// }
-
-// goBack({bool? returnValue}) {
-//   Get.back(result: returnValue);
-//   String currentRoute = Get.routing.current.substring(1);
-//   if (currentRoute.indexOf("/") > 0) {
-//     //String backRoute = currentRoute.substring(0, currentRoute.indexOf('/'));
-//     String itemId = currentRoute.substring(currentRoute.indexOf('/') + 1);
-//     Menu item = menuData.singleWhere((element) => element.id == toInt(itemId));
-
-//     goTo(item);
-//   }
-// }
-
-// goToMenuId(int? menuId) {
-//   if (menuId != null) {
-//     Menu item = menuData.singleWhere((element) => element.id == menuId);
-//     goTo(item);
-//   }
-// }
-
-// goToMenu(String name) {
-//   Menu item = menuData.singleWhere((element) => element.name == name);
-//   goTo(item);
-// }
-
-// goToHelpMenu() {
-//   Menu item = menuData.singleWhere((element) => element.name == "Services");
-//   goTo(item);
-// }
-
-// goToHotelMenu() {
-//   Menu item = menuData.singleWhere((element) => element.name == "Hotel");
-//   goTo(item);
-// }
-
-go(String route) {
-  closeOpenedDialog();
-  Get.toNamed(route);
-}
-
-goArguments(String route, String message) {
-  closeOpenedDialog();
-  Get.toNamed(route, arguments: message);
 }
 
 parseRoute(route) {

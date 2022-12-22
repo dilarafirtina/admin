@@ -1,5 +1,6 @@
-import 'package:admin/constants.dart';
-import 'package:admin/pages/main/page_controller.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+
+import '../utils/configuration.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,7 @@ Widget header(String header) {
 Widget title(String subtitle) {
   return Text(subtitle,
       style: const TextStyle(
-          fontSize: 20, fontWeight: FontWeight.bold, color: primaryColor));
+          fontSize: 20, fontWeight: FontWeight.bold, color: kPrimaryColor));
 }
 
 Widget subTitle(String subtitle) {
@@ -41,7 +42,7 @@ Widget menuButton({VoidCallback? onTap}) {
           width: 40.0,
           decoration:
               const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-          child: const Icon(Icons.menu, color: secondaryColor, size: 20)),
+          child: const Icon(Icons.menu, color: kSecondaryColor, size: 20)),
     ),
   );
 }
@@ -50,7 +51,7 @@ Widget menuButton({VoidCallback? onTap}) {
 //   return Positioned(
 //       left: 8.0,
 //       top: Get.height * 0.05,
-//       child: backButton(color: color ?? primaryColor));
+//       child: backButton(color: color ?? kPrimaryColor));
 // }
 
 // Widget backButton({Color? color}) {
@@ -63,7 +64,7 @@ Widget menuButton({VoidCallback? onTap}) {
 //           const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
 //       child: Icon(
 //         Icons.arrow_back,
-//         color: color ?? primaryColor,
+//         color: color ?? kPrimaryColor,
 //         size: 20,
 //       ),
 //     ),
@@ -75,7 +76,7 @@ Widget backButtonColored() {
       height: 40.0,
       width: 40.0,
       decoration:
-          const BoxDecoration(shape: BoxShape.circle, color: secondaryColor),
+          const BoxDecoration(shape: BoxShape.circle, color: kSecondaryColor),
       child: const Icon(
         Icons.arrow_back,
         color: Colors.white,
@@ -88,7 +89,7 @@ Widget circleButton(IconData icon) {
       height: 50.0,
       width: 50.0,
       decoration:
-          const BoxDecoration(shape: BoxShape.circle, color: primaryColor),
+          const BoxDecoration(shape: BoxShape.circle, color: kPrimaryColor),
       child: Icon(
         icon,
         color: Colors.white,
@@ -155,7 +156,7 @@ Widget smallColoredButton(IconData icon) {
       width: 45,
       height: 45,
       decoration: BoxDecoration(
-        color: primaryColor,
+        color: kPrimaryColor,
         borderRadius: const BorderRadius.all(
           Radius.circular(15),
         ),
@@ -252,51 +253,164 @@ void showToastMessage(String type, String title, String message) async {
 }
 
 Widget gridHeader(String? title) {
-  TextStyle style = TextStyle(color: Colors.red.shade600, fontSize: 12);
   return Padding(
       padding: EdgeInsets.all(defaultPadding),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            children: [Text(title!)],
-          ),
-          Container(
-              child: Row(
-            children: [
-              Container(
-                width: 150,
-                child: TextField(
-                  onChanged: (value) {},
-                  decoration: InputDecoration(
-                    labelStyle: style,
-                    labelText: 'Search',
-                    suffixIcon: Icon(Icons.search, color: Colors.red.shade600),
-                  ),
+      child: Get.size.width > 768
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [Text(title!)],
                 ),
-              ),
-              SizedBox(width: 10),
-              Row(
-                children: [
-                  TextButton(
-                    child: Text("Print", style: style),
-                    onPressed: () => {},
-                  ),
-                  Icon(Icons.print, color: Colors.red.shade600)
-                ],
-              ),
-              SizedBox(width: 10),
-              Row(
-                children: [
-                  TextButton(
-                    child: Text("Export", style: style),
-                    onPressed: () => {},
-                  ),
-                  Icon(Icons.upload, color: Colors.red.shade600)
-                ],
-              ),
-            ],
-          )),
+                gridActions()
+              ],
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(title!),
+                SizedBox(
+                  height: defaultPadding,
+                ),
+                gridActions()
+              ],
+            ));
+}
+
+Widget gridActions() {
+  TextStyle style = TextStyle(color: Colors.red.shade600, fontSize: 12);
+  return Container(
+      child: Row(
+    children: [
+      Container(
+        width: 150,
+        child: TextField(
+          onChanged: (value) {},
+          decoration: InputDecoration(
+            labelStyle: style,
+            labelText: 'Search',
+            suffixIcon:
+                Icon(Icons.search, color: Colors.red.shade600, size: 20),
+          ),
+        ),
+      ),
+      Row(
+        children: [
+          TextButton(
+            child: Text("Print", style: style),
+            onPressed: () => {},
+          ),
+          Icon(Icons.print, color: Colors.red.shade600, size: 20)
+        ],
+      ),
+      Row(
+        children: [
+          TextButton(
+            child: Text("Export", style: style),
+            onPressed: () => {},
+          ),
+          Icon(Icons.upload, color: Colors.red.shade600, size: 20)
+        ],
+      ),
+    ],
+  ));
+}
+
+Widget linearIndicator(double percent, Color color,
+    {String? text,
+    Widget? leading,
+    Widget? trailing,
+    Color? backgroundColor,
+    double? lineHeight}) {
+  return Container(
+      padding: EdgeInsets.symmetric(vertical: defaultPadding / 2),
+      child: LinearPercentIndicator(
+        backgroundColor: backgroundColor ?? Colors.transparent,
+        animation: true,
+        lineHeight: lineHeight ?? 20.0,
+        animationDuration: 2500,
+        percent: percent,
+        center: Text(text ?? ""),
+        linearStrokeCap: LinearStrokeCap.roundAll,
+        progressColor: color,
+        barRadius: Radius.circular(10),
+        leading: leading ?? SizedBox(),
+        trailing: trailing ?? SizedBox(),
+      ));
+}
+
+Widget circularIndicator(
+    {String? centerText,
+    String? footerText,
+    List<Color>? colors,
+    Color? footerColor,
+    double? percent,
+    IconData? iconData,
+    Color? iconColor}) {
+  return CircularPercentIndicator(
+    backgroundColor: Colors.grey.shade100,
+    radius: 80.0,
+    lineWidth: 10.0,
+    animation: true,
+    animationDuration: 3000,
+    percent: percent == null ? 1 : percent,
+    animateFromLastPercent: true,
+    center: Text(
+      centerText ?? "",
+      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+    ),
+    footer: footerText!.isNotEmpty
+        ? Container(
+            color: footerColor ?? Colors.grey.shade200,
+            padding: EdgeInsets.all(defaultPadding / 2),
+            margin: EdgeInsets.all(defaultPadding / 2),
+            child: Text(
+              footerText ?? "",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15.0,
+                  color: Colors.white),
+            ))
+        : SizedBox(),
+    circularStrokeCap: CircularStrokeCap.round,
+    maskFilter: MaskFilter.blur(BlurStyle.solid, 3),
+    linearGradient: LinearGradient(
+      colors: colors ?? [Colors.blue, Colors.cyan],
+    ),
+    widgetIndicator: RotatedBox(
+      quarterTurns: 1,
+      child: iconData == null
+          ? SizedBox()
+          : Icon(
+              iconData,
+              size: 30,
+              color: iconColor ?? footerColor,
+            ),
+    ),
+  );
+}
+
+Widget dashBoardCardTemplate(
+  BuildContext context,
+  Widget child, {
+  String? title,
+}) {
+  return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).canvasColor,
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+      ),
+      padding: EdgeInsets.all(defaultPadding),
+      child: Column(
+        children: [
+          Text(title ?? "", style: Theme.of(context).textTheme.headline6),
+          Divider(
+            thickness: 1,
+          ),
+          SizedBox(
+            height: defaultPadding,
+          ),
+          child
         ],
       ));
 }

@@ -1,5 +1,6 @@
-import 'package:admin/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../utils/configuration.dart';
 
 Widget defaultButton({
   final String? text,

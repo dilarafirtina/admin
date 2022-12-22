@@ -1,6 +1,7 @@
-import 'package:admin/constants.dart';
-import 'package:admin/widgets/grid_container.dart';
 import 'package:flutter/material.dart';
+
+import '../../utils/configuration.dart';
+import '../../widgets/grid_container.dart';
 
 class UserDetail extends StatelessWidget {
   @override
@@ -136,7 +137,7 @@ class UserDetail extends StatelessWidget {
                         children: [
                           Checkbox(
                               autofocus: false,
-                              activeColor: secondaryColor,
+                              activeColor: kSecondaryColor,
                               checkColor: Colors.white,
                               value: true,
                               onChanged: (value) => {false}),
@@ -160,7 +161,7 @@ class UserDetail extends StatelessWidget {
                         children: [
                           Checkbox(
                               autofocus: false,
-                              activeColor: secondaryColor,
+                              activeColor: kSecondaryColor,
                               checkColor: Colors.white,
                               value: true,
                               onChanged: (value) => {false}),

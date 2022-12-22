@@ -1,7 +1,8 @@
-import 'package:admin/pages/user/user_controller.dart';
-import 'package:admin/widgets/grid_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../widgets/grid_container.dart';
+import 'user_controller.dart';
 
 Widget userGrid(BuildContext context, List data, String? title) {
   final UserController _controller = Get.put(UserController());
